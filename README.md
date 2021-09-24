@@ -70,16 +70,16 @@ Dentro do `onPrepare` no arquivo de configuração, fazer a substituição do c�
 ```
 onPrepare : function ( )   { 
     var  AllureReporter  = require ( ' jasmine-allure-reporter ' )
-    jasmim . getEnv ( ) . addReporter ( new AllureReporter  ( ) )
-    jasmim . getEnv ( ) . afterEach ( function ( done ) {
-      navegador . takeScreenshot ( ) . então ( função ( png )  { 
-        fascinar . createAttachment ( ' Screenshot ' , function ( ) {   
-          retornar um novo Buffer ( png , ' base64 ' )   
-        } , ' imagem / png ' )  ()
-        feito ( )
-      } )
-    } )
-  };
+    
+    jasmine.getEnv().addReporter(new AllureReporter());
+        jasmine.getEnv().afterEach(function (done) {
+            browser.takeScreenshot().then(function (png) {
+                allure.createAttachment('Screenshot', function () {
+                    return new Buffer(png, 'base64')
+                }, 'image/png')();
+                done();
+            })
+        });
 ```
 
 
