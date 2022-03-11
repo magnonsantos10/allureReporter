@@ -1,4 +1,4 @@
-# allureReporter
+# allureReporter com Protractor
 Relatório de automação com o Framework Allure Reporter
 
 ## Instalação do jasmine-allure-reporter
